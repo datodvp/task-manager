@@ -1,5 +1,5 @@
 import TaskManager from "./src/taskManager";
-import "./styles.css";
+import "./style.css";
 
 /**
  * Construct and initialize task manager component
