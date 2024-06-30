@@ -9,7 +9,20 @@ class Store {
   static getTasks() {
     let tasks;
 
+    // Check if 'tasks' exists in localStorage
+    if (localStorage.getItem("tasks") === null) {
+      // If not found, initialize tasks as an empty array
+      tasks = [];
+    } else {
+      // If found, parse the stored JSON string into an array of task data
+      tasks = JSON.parse(localStorage.getItem("tasks"));
 
+      // Map the array of task data to Task objects using reviveTask method
+      tasks = tasks.map((taskData) => Task.reviveTask(taskData));
+    }
+
+    return tasks;
+  }
 
   static addTask(task) {
     const tasks = Store.getTasks();

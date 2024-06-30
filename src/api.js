@@ -1,7 +1,7 @@
-// import Store from "./store";
-// import Task from "./task";
-// import TaskManager from "./taskManager";
-// import UI from "./ui";
+import Store from "./store";
+import Task from "./task";
+import TaskManager from "./taskManager";
+import UI from "./ui";
 
 /**Interacts with API */
 class API {
@@ -10,10 +10,10 @@ class API {
    * @param {TaskManager} taskManager
    */
   static async fetchTasks(taskManager) {
-    const apiURL = import.meta.env.VITE_API_URL;
-
     try {
-      const response = await fetch(apiURL);
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/todos" // DID not use ENVIROMENT VARIABLE HERE
+      );
       const data = await response.json();
 
       // Sets tasks for Task Manager instance
